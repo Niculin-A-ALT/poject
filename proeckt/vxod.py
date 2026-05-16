@@ -25,7 +25,7 @@ class Ui_Form(object):
         self.label.setMinimumSize(QtCore.QSize(50, 50))
         self.label.setMaximumSize(QtCore.QSize(300, 300))
         self.label.setText("")
-        self.label.setPixmap(QPixmap(QPixmap("Icon.png")))  # ✅
+        self.label.setPixmap(QPixmap(QPixmap("C://Users//kuzel//OneDrive//Desktop//poject//proeckt//dist//Icon.png")))  # ✅
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.widget = QtWidgets.QWidget(parent=Form)
