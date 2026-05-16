@@ -9,7 +9,18 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 from PyQt6.QtGui import  QPixmap
-
+import os
+import sys
+# ========== ЭТА ФУНКЦИЯ ОБЯЗАТЕЛЬНА ДЛЯ КАРТИНОК В EXE ==========
+def resource_path(relative_path):
+    """Получить путь к файлу, работающий и в .py, и в .exe"""
+    try:
+        # PyInstaller создаёт временную папку и хранит путь в _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        # Если запущено как скрипт (не exe)
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -25,7 +36,7 @@ class Ui_Form(object):
         self.label.setMinimumSize(QtCore.QSize(50, 50))
         self.label.setMaximumSize(QtCore.QSize(300, 300))
         self.label.setText("")
-        self.label.setPixmap(QPixmap(QPixmap("C://Users//kuzel//OneDrive//Desktop//poject//proeckt//dist//Icon.png")))  # ✅
+        self.label.setPixmap(QPixmap(resource_path("Icon.png")))  # ✅
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.widget = QtWidgets.QWidget(parent=Form)
