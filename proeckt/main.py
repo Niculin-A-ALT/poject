@@ -1,9 +1,6 @@
-import pymysql
-import sys
 from PyQt6 import QtWidgets
-from  PyQt6.QtGui import QPixmap
 from vxod import Ui_Form
-from  manager import Ui_Form_manager
+from manager import Ui_Form_manager
 
 class Main(QtWidgets.QWidget,Ui_Form):
     def __init__(self):

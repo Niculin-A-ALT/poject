@@ -36,7 +36,7 @@ class Ui_Form_manager(object):
         font.setPointSize(12)
         self.label.setFont(font)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Icon.png"))
+        self.label.setPixmap(QtGui.QPixmap("dist/Icon.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.frame)
