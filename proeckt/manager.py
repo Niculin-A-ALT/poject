@@ -7,9 +7,21 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from  PyQt6.QtGui import QPixmap
+import sys
+import os
 
 
+def resource_path(relative_path):
+    """Получить путь к файлу, работающий и в .py, и в .exe"""
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 class Ui_Form_manager(object):
+
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(1000, 800)
@@ -36,7 +48,8 @@ class Ui_Form_manager(object):
         font.setPointSize(12)
         self.label.setFont(font)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("dist/Icon.png"))
+        pixmap = QPixmap(resource_path("Icon.png"))  # ✅ будет работать
+        self.label.setPixmap(QPixmap(resource_path("Icon.png")))  # ✅
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.frame)
